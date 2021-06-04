@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
 
 const StudentSchema = new Schema({
   name:{
@@ -19,12 +18,15 @@ const StudentSchema = new Schema({
       type:String,
       trim:true
     },
-    subject:{
-      type:String,
-      trim:true
-    }
+    subject:[{
+      type:String
+    }]
+    // subject:[{
+    //   type:Schema.Types.ObjectId,
+    //   ref:"Subject"
+    // }]
 });
 
-const Student = mongoose.model("Student", StudentSchema);
+const Student = model("Student", StudentSchema);
 
 module.exports = { Student };

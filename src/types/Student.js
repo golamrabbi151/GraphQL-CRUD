@@ -8,7 +8,7 @@ module.exports = gql`
     email: String!
     phone: String!
     dob: String!
-    subject: String
+    subject: [String]
   }
 
   input CreateStudentInput {
@@ -16,15 +16,15 @@ module.exports = gql`
     email: String!
     phone: String!
     dob: String!
-    subject: String
+    subject: [String]
   }
 
   input UpdateStudentInput {
-    name: String!
-    email: String!
-    phone: String!
-    dob: String!
-    subject: String
+    name: String
+    email: String
+    phone: String
+    dob: String
+    subject: [String]
   }
 
   input DeleteStudentInput {
@@ -35,7 +35,7 @@ module.exports = gql`
     id: ID!
   }
 
-  type Query {
+   type Query {
     students: [Student]
   }
 
